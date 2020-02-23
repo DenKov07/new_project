@@ -10,11 +10,11 @@ number = 50
 
 ans = str()
 while True:
-    ans = str(input('Это число' + number))
+    ans = str(input('Это число' + str(number)))     #Внести правки по поводу диапозонов, проверки кода, дописать прогу
     if ans == '=':
         break
     elif ans == '-':
-        number//=2
+        number //= 2
     elif ans == '+':
         number = number+(number//2)
     else:
