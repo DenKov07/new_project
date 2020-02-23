@@ -10,13 +10,14 @@ number = 50
 
 ans = str()
 while True:
-    ans=int(input('Это число {}'.format(('')==(number))))
+    ans = str(input('Это число' + number))
     if ans == '=':
         break
     elif ans == '-':
         number//=2
+    elif ans == '+':
+        number = number+(number//2)
     else:
-        number=number+number//2
-
+        continue
 
 print('Я так и знал')
