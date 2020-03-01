@@ -2,32 +2,33 @@
 # Игра наоборот
 # человек загадывает число, акомпьютер отгадывает
 
-print('Дороу, загадай число от 1 до 100. Я постараюсь отгадать, но нужно чтобы ты отвечал мне! \n'
-      '"-" - Если загаданое число меньше того,что я назвал  \n'
-      '"+" - Если загаданое число меньше того,что я назвал \n'
-      '"=" - Если я ответил верно')
+print('Hi, guess the number from 1 to 100. I will try to guess, but you need me to answer! \n'
+      '"-" - If the guessed number is less than what I called  \n'
+      '"+" - If the hidden number is greater than what I called \n'
+      '"=" - If I answered correctly')
 
-number = 50
-a = 0
-b = 101
-con = 0
+start = 0
+end = 101
+round = 0
 
-ans = str()
 while True:
-    ans = input('Это число ' + str(number) + '?\n')
-    con += 1
+    number = start + (end - start) // 2
+    ans = input('This is ' + str(number) + '?\n')
+    round += 1
     if ans == '=':
+        print('I knew it')
         break
     elif ans == '-':
-        b = number
-        number = b - (b - a) // 2
-        print(a, b)
+        end = number
     elif ans == '+':
-        a = number
-        number = a + (b - a) // 2
-        print(a, b)
+        start = number
     else:
-        continue
+        print('Type only "+", "-" or "=", please')
+        round -= 1
 
-print('Я так и знал')
-print('Ты потратил ', con, 'попыток')
+    if round > 10:
+        print("I played this game")
+        break
+
+
+print('I spent', round, 'attempts. Play again?')
