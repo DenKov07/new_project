@@ -29,10 +29,12 @@ while guess != the_number:
     guess = int(input("Take a guess: "))
     tries += 1
     if tries == 10:
-        print('Ты не справился со мной, машины победили')
+        print('You lose! Machines WON!!! HA-HA-HA! ')
         break
+    elif guess != the_number:
+        continue
     else:
-        print("You guessed it!  The number was", the_number)
+        print('What?! You win?! How?!')
 
 print("And it only took you", tries, "tries!\n")
 
