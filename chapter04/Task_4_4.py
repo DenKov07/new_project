@@ -11,12 +11,14 @@ word = random.choice(WORDS)
 
 print('In guess word', len(word), 'letters\n')
 
-i = 0
+try_i = 0
 
-while i < 5:
+while try_i < 5:
+    # if try_i == 5:
+    #     break
     letter = input('Enter a letter\n')
-    i += 1
-    if letter in word:
+    try_i += 1
+    if letter.lower() in word:
         print('Yen\n')
     else:
         print('No\n')
