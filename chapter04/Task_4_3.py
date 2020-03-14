@@ -19,7 +19,7 @@ TIPS = ("The language we learn to program in",
         "What do we want to get to the question - ",
         "Strange musical instrument")
 # create score
-score = 100
+score = 0
 
 # create a jumbled version of the word
 jumble = ""
@@ -42,9 +42,14 @@ print("The jumble is:", jumble)
 guess = input("\nYour guess: ")
 
 
-while guess != correct and guess != "":
-    if guess == "?":
+while guess != correct or guess != '0':
+    if guess == '?':
+        score = 100
         score -= 25
+        if score <= 0:
+            print('Oh, you died)) Your score {}'.format(score))
+            break
+
         if correct == (WORDS[0]):
             print(TIPS[0])
         elif correct == (WORDS[1]):
@@ -60,6 +65,7 @@ while guess != correct and guess != "":
     guess = input("Your guess: ")
 
 if guess == correct:
+    score = 100
     print("That's it!  You guessed it!\n")
 
 print("Thanks for playing. Your score -", score)
