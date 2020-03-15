@@ -1,12 +1,15 @@
 # Task 5.2
 # Program about hero and his specifications
-#  User can customize hero
+# User can customize hero
 
 specification = {
-    'Strength': 0,
+    'strength': 0,
     'health': 0,
     'wisdom': 0,
     'agility': 0}
+
+
+print(", ".join("{item} - [{value}]".format(item=item, value=value) for item, value in specification.items()))
 
 points = 30
 
@@ -30,81 +33,84 @@ Remember, you can only distribute {} points\n'''.format(points))
         for item in specification:
             while points >= 0:
                 how_many = int(input("How many points do you want to bet " + item.lower() + '?\n'))
-                if points + how_many < 0 or points - int(how_many) >30:
+                if points - how_many < 0 or points - how_many > 30:
                     print("You can't do this. you don't have enough points")
                     print('You have left', points, 'points.')
-                elif int(specification[item]) + int(points) + int(how_many) < 0:
+                    continue
+
+                if int(specification[item]) + how_many < 0:
                     print('Enter only positive values')
                     print('You have left', points, 'points.')
-                else:
-                    points = points - how_many
-                    specification[item] = int(specification[item]) + int(how_many)
-                    break
+                    continue
+
+                points = points - how_many
+                specification[item] = int(specification[item]) + how_many
+                break
             print('You have left', points, 'points.')
 
     elif choice == '2':
         while points >= 0:
-            print('Now strength have {} points'.format(specification['Strength']))
-            how_many = input("How many points do you want to bet strength?\n")
-            if points - int(how_many) < 0 or points - int(how_many) > 30:
+            print('Now strength have {} points'.format(specification['strength']))
+            how_many = int(input("How many points do you want to bet strength?\n"))
+            if points - how_many < 0 or points - how_many > 30:
                 print("You can't do this. you don't have enough points")
                 print('You have left', points, 'points.')
-            elif int(specification['Strength']) + int(points) + int(how_many) < 0:
+            elif int(specification['strength']) + how_many < 0:
                 print("You can 't reallocate more points than you have")
                 print('You have left', points, 'points.')
             else:
-                specification['Strength'] = int(specification['Strength']) + int(how_many)
-                points = points - int(how_many)
+                specification['strength'] = int(specification['strength']) + how_many
+                points = points - how_many
                 break
 
     elif choice == '3':
         while points >= 0:
-            how_many = input("How many points do you want to bet health?\n")
-            if points - int(how_many) < 0 or points - int(how_many) > 30:
+            how_many = int(input("How many points do you want to bet health?\n"))
+            if points - how_many < 0 or points - how_many > 30:
                 print("You can't do this. you don't have enough points")
                 print('You have left', points, 'points.')
-            elif int(specification['health']) + int(points) + int(how_many) < 0:
+            elif int(specification['health']) + how_many < 0:
                 print('Enter only positive values')
                 print('You have left', points, 'points.')
             else:
-                specification['health'] = int(specification['health']) + int(how_many)
-                points = points - int(how_many)
+                specification['health'] = int(specification['health']) + how_many
+                points = points - how_many
                 break
 
     elif choice == '4':
         while points >= 0:
-            how_many = input("How many points do you want to bet wisdom?\n")
-            if points - int(how_many) < 0 or points - int(how_many) > 30:
+            how_many = int(input("How many points do you want to bet wisdom?\n"))
+            if points - how_many < 0 or points - how_many > 30:
                 print("You can't do this. you don't have enough points")
                 print('You have left', points, 'points.')
-            elif int(specification['wisdom']) + int(points) + int(how_many) < 0:
+            elif int(specification['wisdom']) + how_many < 0:
                 print('Enter only positive values')
                 print('You have left', points, 'points.')
             else:
-                specification['wisdom'] = int(specification['wisdom']) + int(how_many)
-                points = points - int(how_many)
+                specification['wisdom'] = int(specification['wisdom']) + how_many
+                points = points - how_many
                 break
 
     elif choice == '5':
         while points >= 0:
-            how_many = input("How many points do you want to bet agility?\n")
-            if points - int(how_many) < 0 or points - int(how_many) > 30:
+            how_many = int(input("How many points do you want to bet agility?\n"))
+            if points - how_many < 0 or points - how_many > 30:
                 print("You can't do this. you don't have enough points")
                 print('You have left', points, 'points.')
-            elif int(specification['agility']) + int(points) + int(how_many) < 0:
+            elif int(specification['agility']) + int(points) + how_many < 0:
                 print('Enter only positive values')
                 print('You have left', points, 'points.')
             else:
-                specification['agility'] = int(specification['agility']) + int(how_many)
-                points = points - int(how_many)
+                specification['agility'] = int(specification['agility']) + how_many
+                points = points - how_many
                 break
 
     else:
-        print("Menu havan't this number")
+        print("Menu hasn't this number")
         continue
 
     print('The hero looks like this:')
-    print("Strength - [{}], health - [{}], wisdom - [{}], agility - [{}]".format(specification['Strength'],
+    print("strength - [{}], health - [{}], wisdom - [{}], agility - [{}]".format(specification['strength'],
                                                                                  specification['health'],
                                                                                  specification['wisdom'],
                                                                                  specification['agility']))
