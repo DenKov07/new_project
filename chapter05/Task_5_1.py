@@ -3,12 +3,12 @@
 
 import random
 
-words = ('COW', 'HOME', 'TOWN', 'ROAD', 'SHOP', 'LIGHT')
-printing = []
+words = ['COW', 'HOME', 'TOWN', 'ROAD', 'SHOP', 'LIGHT']
+random.shuffle(words)
 
-for word in words:
-    choice = random.randrange(len(words))
-    printing.append(words[choice])
-    words = words[:choice] + words[(choice + 1):]
+# for word in words:
+#     choice = random.randrange(len(words))
+#     printing.append(words[choice])
+#     words = words[:choice] + words[(choice + 1):]
 
-print(printing)
+print(words)
