@@ -35,24 +35,25 @@ def main():
 
     # guessing loop
     while guess != the_number:
-        if guess > the_number:
-            print("Lower...")
+        while tries <= 9:
+            if guess > the_number:
+                print("Lower...")
+                tries += 1
+                guess = ask_number('Take a guess:', 1, 100)
+            elif guess < the_number:
+                print("Higher...")
+                tries += 1
+                guess = ask_number('Take a guess:', 1, 100)
+            else:
+                break
         else:
-            print("Higher...")
-
-        guess = ask_number('Take a guess:', 1, 100)
-        tries += 1
-        if tries == 10:
             print('You lose! Machines WON!!! HA-HA-HA! ')
             break
-        elif guess != the_number:
-            continue
-        else:
-            print('What?! You win?! How?!')
+    print('What?! You win?! How?!')
 
     print("And it only took you", tries, "tries!\n")
-
     input("\n\nPress the enter key to exit.")
 
 
 main()
+
